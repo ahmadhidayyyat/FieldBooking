@@ -8,7 +8,7 @@ class BookingBase(BaseModel):
     end_time: datetime
 
 class BookingCreate(BookingBase):
-    user_id: int
+    pass
 
 class BookingResponse(BookingBase):
     id: int

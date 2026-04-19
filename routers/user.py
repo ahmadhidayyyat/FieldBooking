@@ -11,9 +11,7 @@ router = APIRouter(
     tags=["users"]
 )
 
-# Mock function for password hashing (sementara sebelum ada passlib)
-def get_password_hash(password: str) -> str:
-    return password + "notreallyhashed"
+from auth.jwt import get_password_hash
 
 @router.post("/", response_model=user_schema.UserResponse, status_code=status.HTTP_201_CREATED)
 def create_user(user: user_schema.UserCreate, db: Session = Depends(get_db)):
